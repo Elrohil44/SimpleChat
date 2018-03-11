@@ -10,7 +10,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 public class Server {
-    static int SERVER_PORT = 12345;
+    private static int SERVER_PORT = 12345;
     private ExecutorService pool = Executors.newCachedThreadPool();
 
 

@@ -1,5 +1,7 @@
 package Server;
 
+import java.util.Scanner;
+
 public class Message {
     private Client client;
     private String message;
@@ -10,10 +12,15 @@ public class Message {
     }
 
     public String getMessageWithClientData() {
-        return String.format("%s[%s]: %s",
+        Scanner scanner = new Scanner(message);
+        String clientData = String.format("%s[%s]",
                 client.getNickname(),
-                client.getAddress(),
-                message);
+                client.getAddress());
+        StringBuilder msg = new StringBuilder();
+        while (scanner.hasNextLine()) {
+            msg.append(String.format("%s: %s\n", clientData, scanner.nextLine()));
+        }
+        return msg.toString();
     }
 
     public Client getClient() {
