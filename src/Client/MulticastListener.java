@@ -19,6 +19,7 @@ public class MulticastListener implements Runnable {
         while (!multicastSocket.isClosed()) {
             try {
                 multicastSocket.receive(receivePacket);
+                System.out.println("Multicast message:");
                 System.out.println(new String(
                         Arrays.copyOfRange(receivePacket.getData(), 0, receivePacket.getLength()),
                         "UTF-8"));

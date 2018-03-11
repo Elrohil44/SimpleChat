@@ -20,6 +20,9 @@ public class Message {
         while (scanner.hasNextLine()) {
             msg.append(String.format("%s: %s\n", clientData, scanner.nextLine()));
         }
+        if (msg.length() > 0) {
+            msg.deleteCharAt(msg.length() - 1);
+        }
         return msg.toString();
     }
 
