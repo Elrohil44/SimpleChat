@@ -19,10 +19,11 @@ public class MulticastListener implements Runnable {
         while (!multicastSocket.isClosed()) {
             try {
                 multicastSocket.receive(receivePacket);
-                System.out.println("Multicast message:");
+                System.out.println("Begin multicast message:");
                 System.out.println(new String(
                         Arrays.copyOfRange(receivePacket.getData(), 0, receivePacket.getLength()),
                         "UTF-8"));
+                System.out.println("End multicast messsage");
             } catch (IOException e) {
                 e.printStackTrace();
             }

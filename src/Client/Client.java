@@ -86,7 +86,7 @@ public class Client {
                 String cmd = scanner.nextLine();
                 switch (cmd) {
                     case "/U": {
-                        System.out.println("Write your datagram message, finish with /FINISH\\");
+                        System.out.println("Write your datagram message, finish with /FINISH");
                         byte[] msg = getData(scanner).getBytes();
                         DatagramPacket packet = new DatagramPacket(msg, msg.length, tcpSocket.getRemoteSocketAddress());
 
@@ -94,7 +94,7 @@ public class Client {
                         break;
                     }
                     case "/M": {
-                        System.out.println("Write your multicast message, finish with /FINISH\\");
+                        System.out.println("Write your multicast message, finish with /FINISH");
                         byte[] msg = getData(scanner).getBytes();
                         DatagramPacket packet = new DatagramPacket(
                                 msg,
@@ -121,7 +121,7 @@ public class Client {
     private String getData(Scanner in) {
         String line;
         StringBuilder msg = new StringBuilder();
-        while (!(line = in.nextLine()).equals("/FINISH\\")) {
+        while (!(line = in.nextLine()).equals("/FINISH")) {
             msg.append(line).append('\n');
         }
         return msg.toString();
